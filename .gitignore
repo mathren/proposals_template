@@ -1,0 +1,14 @@
+*.pdf
+*#*
+*synctex.gz
+auto/*
+*.aux
+*.bbl
+*.log
+*.blg
+*.tar.gz
+*.mod
+*.o
+*.bak
+*.out
+*~
