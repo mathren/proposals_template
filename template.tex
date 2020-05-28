@@ -113,10 +113,10 @@
 \let\tempone\itemize
 \let\temptwo\enditemize
 \renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5em}}{\temptwo}
-% \title{\textcolor{blue}{\Large Explosions in massive binary stars}\linebreak
-%   \vspace{-25pt}
-% }
-\title{\vspace*{-25pt}\textcolor{blue}{TITLE}}
+\title{\textcolor{blue}{\Large Title of my awesome proposal}\linebreak
+   \vspace{-25pt}
+ }
+% \title{\vspace*{-25pt}\textcolor{blue}{TITLE}}
 
 \subtitle{\small  \emph{subtitle}}
   
@@ -126,30 +126,38 @@
 
 \begin{document}
 \maketitle
-\noindent
+% \noindent
 \vspace*{-50pt}
 
+\section*{Section\,\,\xhrulefill{blue}{1pt}}
 
-
-\begin{wrapfigure}[20]{L}{.16\textwidth}
-  \setlength{\abovecaptionskip}{-4pt}
-  \centering
-  % \vspace*{-15pt}
-\end{wrapfigure}
-\setcounter{figure}{1}
-
-\section*{Scientific objective\,\,\xhrulefill{blue}{1pt}}
-
-\subsection*{Planned research activity \& computational methods}
-
+\lipsum[1-2]
 
 \subsection*{Subsection}
 
-\section*{Why where I want to go}
+\lipsum[3]
+
+\lipsum[4]
+
+\subsection*{Subsection}
+
+\lipsum[5]
+
+\section*{Another Section}
+
+\begin{wrapfigure}[13]{R}{.45\textwidth}
+  \setlength{\abovecaptionskip}{-4pt}
+  \centering
+  \includegraphics[width=0.45\textwidth]{example-image-golden}
+  \vspace*{10pt}
+  \caption{awesome fig. from a paper \cite{abadie:10}}
+\end{wrapfigure}
+%\setcounter{figure}{1}
+\lipsum[6-7]
 
 \section*{Summary\,\,\xhrulefill{blue}{1pt}}
 
-
+\lipsum[7]
 
 
 % \newpage
@@ -170,10 +178,26 @@
 
 
 \bibliographystyle{ultracompact}
+%% -----------------------------------------
+%% Uncomment the line below (and comment thebibliography further
+%% down), then use bibtex on your
+%% bibfile to create the *.bbl file, then comment
+%% again the line below and copy the content of the newly created
+%% *.bbl in the bibliography
+%% -----------------------------------------
+%% \bibliography{mybib}
+%% -----------------------------------------
 \setlength{\bibsep}{0.7pt}
 \setstretch{0.7}
 
 \tiny
+%% -----------------------------------------
+%% Comment what is below all the way to the \end{document} line to
+%% create the *.bbl file with bibtex
+%% Once you have created the *.bbl file using bibtex on your *.bib
+%% file, copy its content within thebibliography and uncomment it,
+%% whil comment the line above and recompile
+%% -----------------------------------------
 \begin{thebibliography}{1}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
@@ -187,6 +211,8 @@
 
  %% copy here content of *.bbl
 \end{thebibliography}
+%% -----------------------------------------
+
 
 \end{document}
 
