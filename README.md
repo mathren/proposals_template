@@ -1,2 +1,5 @@
-# Template for Latex proposals
-simple template I used -- see the pdf file for an example look
+# Latex template for applications
+
+simple template I used. Separate `proposal/` and `cover_letter/`.
+
+
