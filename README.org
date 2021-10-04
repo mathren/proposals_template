@@ -1,0 +1,4 @@
+* Latex template for applications
+
+Simple template I used.
+Separate =proposal/= and =cover_letter/=.
