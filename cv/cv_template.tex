@@ -1,0 +1,299 @@
+\documentclass[12pt,letter]{scrartcl}
+\setkomafont{disposition}{\normalfont\bfseries}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fontawesome5}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[colorlinks,citecolor=blue!80!black,linkcolor=blue!80!black,urlcolor=blue!80!black]{hyperref}
+\usepackage{xcolor}
+% \usepackage[sort&compress,numbers]{natbib}
+\usepackage{lipsum}
+\usepackage{xhfill}     % rulers at sections
+\usepackage{sectsty}
+\usepackage[absolute,overlay]{textpos} %showboxes for debug
+\setlength{\TPHorizModule}{\textwidth}
+\setlength{\TPVertModule}{\paperheight}
+\usepackage{tabularx}
+\usepackage{eurosym}
+\usepackage{paralist}
+\usepackage{enumitem}
+\usepackage{framed}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyhead{}
+\cfoot{\textcolor{black!50}{\small Your Name} \hfill --~{\thepage}~-- \hfill \textcolor{black!50}{\small CV}}
+
+
+\newcommand{\Icon}[1]{\textcolor{blue!80!black}{\faIcon{#1}}}
+
+
+\sectionfont{\color{blue!80!black}}
+\subsectionfont{\color{blue!80!black}}
+\subsubsectionfont{\color{blue!80!black}}
+
+% \setlength{\oddsidemargin}{.46cm}
+% \setlength{\evensidemargin}{-0.46cm}
+% \setlength{\evensidemargin}{0.0cm}
+% \setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{24cm}
+% \setlength{\topmargin}{-2cm}
+% \setlength{\footskip}{1cm}
+% \setlength{\parindent}{1.3em}
+% \setlength{\parskip}{.1cm}
+
+\newcounter{TODOLIST}
+\newcommand{\todo}[1]{\stepcounter{TODOLIST} {$\blacksquare$~\textbf{\color{red}[TODO: #1]}}~$\blacksquare$}
+
+\newcommand{\sectionLine}[1]{\section*{#1\,\,\xhrulefill{black}{0.5pt}}}
+\newcommand{\subSection}[1]{\subsection*{\normalsize{#1}}}
+
+\setlength{\parindent}{0pt}
+
+% redefine itemize
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5em}}{\temptwo}
+
+\begin{document}
+
+%% Title area -------------------------------------------------------------------------------
+%\begin{center}
+\begin{minipage}{0.45\linewidth}
+  {Curriculum Vit\ae}\\[10pt]
+  {\Huge \textbf{Your NAme}}\\
+  {\tiny \textcolor{black!50}{last update:~\today}}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+  \begin{tabular}{cr}
+    \Icon{at} & \href{mailto:your@email}{your@email}\\
+    \Icon{link} &
+                  \href{your.website}{your.website}\\
+    \Icon{envelope} & Address
+  \end{tabular}
+\end{minipage}
+%\end{center}
+
+\vspace*{10pt}
+\xhrulefill{black}{0.5pt}\\
+
+Summary paragraph.
+
+\sectionLine{Research Experience}
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+    20xx - now  & & position\\
+  \end{tabularx}
+\end{center}
+
+\sectionLine{Education}
+\vspace*{-1em}
+\subSection{Ph.D. -- Astrophysics}
+20xx - 20xx, University of somewhere, adviser: someone\\
+Thesis title: \href{link}{\emph{Title}}
+
+\vspace*{-1em}
+\subSection{Masters degree -- Physics}
+20xx - 20xx, University of somewhere, adviser: someone\\
+Thesis title: \href{link}{\emph{Title}}
+
+\vspace*{-1em}
+\subSection{Bachelor degree -- Physics}
+20xx-20xx, University of somewhere, adviser: someone\\
+Final project: \emph{Title}
+
+\sectionLine{Grants \& Awards}
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+    20xx & award & from someone\\
+\end{tabularx}
+\end{center}
+
+\subSection{Computing \& observing grants}
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lX}
+    20xx & Co-I on something\\
+    & (PI: Someone)\\
+  \end{tabularx}
+\end{center}
+
+\subSection{Travel grants}
+
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+  \end{tabularx}
+\end{center}
+
+
+
+\sectionLine{Computing skills}
+
+\subSection{Programming languages}
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+    \textbf{Proficient:} & & \\
+    \textbf{Basic knowledge:} & & \\
+    \textbf{Markup:} & & \LaTeX
+  \end{tabularx}
+\end{center}
+
+
+\subSection{Open source \& open science software}
+
+I strongly believe in the development of free and open source code and
+open science practices.
+
+\begin{center}
+  \Icon{github}  \href{https://github.com/user}{github.com/user} -- \Icon{bitbucket} \href{https://bitbucket.org/user}{bitbucket.org/user} -- \Icon{gitlab} \href{https://gitlab.com/user}{gitlab.com/user}
+\end{center}
+
+\sectionLine{Teaching \& Mentoring}
+
+\subSection{Mentored and co-mentored students}
+
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+  \end{tabularx}
+\end{center}
+
+
+
+\subSection{Organized workshops}
+
+
+
+\subSection{Guest lectures}
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+  \end{tabularx}
+\end{center}
+
+\subSection{Teaching assistant \& instructor}
+
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+  \end{tabularx}
+\end{center}
+
+
+
+
+\sectionLine{Public Engagement}
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+  \end{tabularx}
+\end{center}
+
+
+
+\sectionLine{Other Professional Experiences}
+
+\sectionLine{Completed courses}
+
+\begin{center}
+  \begin{tabularx}{\textwidth}{lXr}
+    2020 & Some course & Somewhere\\
+  \end{tabularx}
+\end{center}
+
+
+\sectionLine{Languages}
+\begin{itemize}
+\item Mother tongues:
+\item Proficient:
+\end{itemize}
+
+\sectionLine{References}
+\begin{itemize}
+\item Someone, who are they to you,
+  \href{mailto:}{their email}
+\end{itemize}
+
+
+\newpage
+
+\sectionLine{Talks \& Posters}
+
+\subSection{Invited}
+
+\subSection{Contributed}
+
+\subSection{Posters}
+
+\subSection{Other talks}
+
+\sectionLine{Publications}
+\begin{center}
+\Icon{orcid}
+\href{https://orcid.org/}{orcid num} --
+\Icon{google}\href{https://scholar.google.com/citations}{oogle scholar} --
+\href{https://ui.adsabs.harvard.edu/search/}{ADS library}
+\end{center}
+
+% ----------------------------------
+% \def\aj{AJ }
+% \def\apj{ApJ }
+% \def\apss{Astrophys. Space Sci.}
+% \def\apjl{ApJL }
+% \def\apjs{ApJS }
+% \def\aa{A\&A }
+% \def\aap{A\&A }
+% \def\araa{ARAA }
+% \def\mnras{MNRAS }
+% \def\mnrasl{MNRASL }
+% \def\cqg{Class. Quantum Grav.}
+% \def\prl{PRL}
+
+
+% \bibliographystyle{ultracompact}
+% %% -----------------------------------------
+% %% Uncomment the line below (and comment thebibliography further
+% %% down), then use bibtex on your
+% %% bibfile to create the *.bbl file, then comment
+% %% again the line below and copy the content of the newly created
+% %% *.bbl in the bibliography
+% %% -----------------------------------------
+% %% \bibliography{mybib}
+% %% -----------------------------------------
+% \setlength{\bibsep}{0.7pt}
+% \setstretch{0.7}
+
+% \tiny
+% %% -----------------------------------------
+% %% Comment what is below all the way to the \end{document} line to
+% %% create the *.bbl file with bibtex
+% %% Once you have created the *.bbl file using bibtex on your *.bib
+% %% file, copy its content within thebibliography and uncomment it,
+% %% whil comment the line above and recompile
+% %% -----------------------------------------
+% \begin{thebibliography}{1}
+% \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+% \color{gray!80!black}
+
+
+%  %% copy here content of *.bbl
+% \end{thebibliography}
+% -----------------------------------------
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
