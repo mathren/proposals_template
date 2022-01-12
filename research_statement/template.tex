@@ -1,128 +1,14 @@
-\documentclass[12pt,letter]{scrartcl}%{article}
-\setkomafont{disposition}{\normalfont\bfseries}
-\usepackage{epsfig}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{listings}
-\usepackage{booktabs}
-\usepackage{setspace}
-\usepackage[colorlinks,citecolor=red,linkcolor=red,urlcolor=red]{hyperref}
-\usepackage{xcolor}
-\usepackage[sort&compress,numbers]{natbib}
-\usepackage{lipsum}
-\usepackage{wrapfig}    % wrap figures with text
-\usepackage{xhfill}     % rulers at sections
-\usepackage{sectsty}
-\usepackage{pgfgantt}
-\usepackage{multicol}
-\usepackage{caption}
-% \usepackage{fancyhdr}
-% \pagestyle{fancy}
-% \fancyhf{}
+\documentclass[11pt,letter]{scrartcl}%{article}
+\input{../setup.tex}
+% \cfoot{\small Your~Name~--~{\normalsize\thepage}~--~Research~proposal}
 
-% % \fancyhead{}
-
-
-% \cfoot{\small Mathieu~Renzo~--~{\normalsize\thepage}~--~Research~proposal}
-% \fancyfoot[RE]{\tiny M.~Renzo -- Research proposal -- \thepage}
-% \fancyfoot[LO]{\tiny M.~Renzo -- Research proposal -- \thepage}
-% \fancyfoot[RO]{\tiny M.~Renzo -- Research proposal -- \thepage}
-
-
-%%% compact bibliography
-\newcommand{\bull}{\textbullet ~}
-
-\usepackage{natbib}
-
-\usepackage{paralist}
-\usepackage{enumitem}
-\usepackage{framed}
-
-\let\olditem\item
-\renewenvironment{thebibliography}[1]{%
-    \vspace{5pt}\noindent\textbf{\textcolor{red}{References:}\\[3pt]}
-    \let\par\relax\let\newblock\relax%
-    % \renewcommand{\item}[1][]{\olditem[\textbullet]}{}%
-    \renewcommand\labelenumi{\bfseries\theenumi~}
-      \begin{inparaenum}%
-}{\end{inparaenum}}
-%--------------------------------------------------------
-
-
-\sectionfont{\color{red}}
-\subsectionfont{\color{red}}
-\subsubsectionfont{\color{red}}
-\renewcommand{\bibsection}{\textcolor{red}{\Large \bf References}\,\,\xhrulefill{red}{1pt}\color{gray!65!black}}
-
-% \setlength{\oddsidemargin}{.46cm}
-% \setlength{\evensidemargin}{-0.46cm}
-% \setlength{\evensidemargin}{0.0cm}
-% \setlength{\textwidth}{15.5cm}
-\setlength{\textheight}{25cm}
-% \setlength{\topmargin}{-2cm}
-% \setlength{\footskip}{1cm}
-% \setlength{\parindent}{1.3em}
-% \setlength{\parskip}{.1cm}
-
-\newcounter{TODOLIST}
-\newcommand{\todo}[1]{\stepcounter{TODOLIST} {$\blacksquare$~\textbf{\color{red}[TODO: #1]}}~$\blacksquare$}
-
-\newcommand{\udef}{\stackrel{\mathrm{def}}{=}}
-\newcommand{\highlight}[1]{\textcolor{red}{\bf #1}}
-\renewcommand{\figurename}{\footnotesize Fig.} %%% change figure
-%%% captions
-\newcommand{\sectionLine}[1]{\section*{#1\,\,\xhrulefill{red}{1pt}}}
-
-
-\DeclareRobustCommand{\Eqref}[1]{Eq.~\ref{#1}}
-\DeclareRobustCommand{\Figref}[1]{Fig.~\ref{#1}}
-\DeclareRobustCommand{\Tabref}[1]{Tab.~\ref{#1}}
-\DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
-
-
-% %for two column bibliography
-\makeatletter
-\renewenvironment{thebibliography}[1]
-     {\begin{multicols}{2}[\section*{\refname}]%
-      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist\end{multicols}}
-  \makeatother
-
-
-% avoid white space for paragraphs
-% \newlength\tindent
-% \setlength{\tindent}{\parindent}
-\setlength{\parindent}{0pt}
-% \renewcommand{\indent}{\hspace*{\tindent}}
-
-
-% redefine itemize
-\let\tempone\itemize
-\let\temptwo\enditemize
-\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5em}}{\temptwo}
 \title{\textcolor{red}{\Large Title of my awesome proposal}\linebreak
    \vspace{-25pt}
  }
 % \title{\vspace*{-25pt}\textcolor{red}{TITLE}}
 
 \subtitle{\small  \emph{catchy subtitle that explains it all}}
-  
+
 \author{\normalsize \textbf{Your Name -- what you apply for}}
 \date{}
 

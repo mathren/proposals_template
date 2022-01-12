@@ -2,47 +2,24 @@
  "template"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
-                     '(("scrartcl" "12pt" "letter")))
-   (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("hyperref" "colorlinks" "citecolor=red" "linkcolor=red" "urlcolor=red") ("natbib" "sort&compress" "numbers")))
+                     '(("scrartcl" "11pt" "letter")))
+   (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
    (TeX-run-style-hooks
     "latex2e"
+    "../setup"
     "scrartcl"
-    "scrartcl12"
-    "epsfig"
-    "amsmath"
-    "amsfonts"
-    "amssymb"
-    "listings"
-    "booktabs"
-    "setspace"
-    "hyperref"
-    "xcolor"
-    "natbib"
-    "lipsum"
-    "wrapfig"
-    "xhfill"
-    "sectsty"
-    "pgfgantt"
-    "multicol"
-    "caption"
-    "paralist"
-    "enumitem"
-    "framed")
+    "scrartcl11")
    (TeX-add-symbols
-    '("Secref" 1)
-    '("Tabref" 1)
-    '("Figref" 1)
-    '("Eqref" 1)
-    '("sectionLine" 1)
-    '("highlight" 1)
-    '("todo" 1)
-    "bull"
-    "udef"
-    "olditem"
-    "newblock"
-    "tempone"
-    "temptwo"
     "aj"
     "apj"
     "apss"
@@ -55,8 +32,6 @@
     "mnrasl"
     "cqg"
     "prl"
-    "natexlab")
-   (LaTeX-add-counters
-    "TODOLIST"))
+    "natexlab"))
  :latex)
 
