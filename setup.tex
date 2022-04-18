@@ -1,13 +1,11 @@
-%% this file is imported by the *.tex in the subfolders
-%% replace the string `red` with the color of your choice
-
 % page size
 \usepackage{geometry}
  \geometry{
  a4paper,
  total={180mm,265mm},
- left=20mm,
- top=20mm,
+ left=10mm,
+ right=10mm,
+ top=15mm,
 }
 
 % these might be incompatible with the above
@@ -26,10 +24,8 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{}
-
 \fancyhead{}
 
-%\setkomafont{disposition}{\normalfont\bfseries}
 \usepackage{epsfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -37,7 +33,7 @@
 \usepackage{listings}
 \usepackage{booktabs}
 \usepackage{setspace}
-\usepackage[colorlinks,citecolor=red,linkcolor=red,urlcolor=red]{hyperref}
+\usepackage[colorlinks,citecolor=blue!50!red,linkcolor=blue!50!red,urlcolor=blue!50!red]{hyperref}
 \usepackage{xcolor}
 \usepackage[sort&compress,numbers]{natbib}
 \usepackage{lipsum}
@@ -48,13 +44,7 @@
 \usepackage{multicol}
 \usepackage[absolute,overlay]{textpos} %showboxes for debug
 \usepackage{caption}
-\captionsetup{justification=raggedright,singlelinecheck=false}
-
-
-% \fancyfoot[RE]{\tiny M.~Renzo -- Research proposal -- \thepage}
-% \fancyfoot[LO]{\tiny M.~Renzo -- Research proposal -- \thepage}
-% \fancyfoot[RO]{\tiny M.~Renzo -- Research proposal -- \thepage}
-
+%\captionsetup{justification=raggedright,singlelinecheck=false}
 
 %%% compact bibliography
 \newcommand{\bull}{\textbullet ~}
@@ -65,10 +55,9 @@
 \usepackage{enumitem}
 \usepackage{framed}
 
-\let\olditem\item
-\renewenvironment{thebibliography}[1]{%
-    \vspace{5pt}\noindent\textbf{\textcolor{red}{References:}\\[3pt]}
-    \let\par\relax\let\newblock\relax%
+\let\olditem\item \renewenvironment{thebibliography}[1]{%
+  \vspace{5pt}\noindent\textbf{\textcolor{blue!50!red}{\tiny References:}}~\textcolor{black}{\tiny
+    (co-authored papers in \textbf{bold})} \let\par\relax\let\newblock\relax%
     % \renewcommand{\item}[1][]{\olditem[\textbullet]}{}%
     \renewcommand\labelenumi{\bfseries\theenumi~}
       \begin{inparaenum}%
@@ -76,19 +65,19 @@
 %--------------------------------------------------------
 
 
-\sectionfont{\color{red}}
-\subsectionfont{\color{red}}
-\subsubsectionfont{\color{red}}
-\renewcommand{\bibsection}{\textcolor{red}{\Large \bf References}\,\,\xhrulefill{red}{1pt}\color{gray!65!black}}
+\sectionfont{\color{blue!50!red}}
+\subsectionfont{\color{blue!50!red}}
+\subsubsectionfont{\color{blue!50!red}}
+\renewcommand{\bibsection}{\textcolor{blue!50!red}{\Large \bf References}\,\,\xhrulefill{blue!50!red}{1pt}\color{gray!65!black}}
 
 \newcounter{TODOLIST}
 \newcommand{\todo}[1]{\stepcounter{TODOLIST} {$\blacksquare$~\textbf{\color{red}[TODO: #1]}}~$\blacksquare$}
 
 \newcommand{\udef}{\stackrel{\mathrm{def}}{=}}
-\newcommand{\highlight}[1]{\textcolor{blue!80!black}{\textbf{#1}}}olor{red}{\bf #1}}
+\newcommand{\highlight}[1]{\textcolor{blue!50!red}{\textbf{#1}}}
 \renewcommand{\figurename}{\footnotesize Fig.} %%% change figure
 %%% captions
-\newcommand{\sectionLine}[1]{\section*{#1\,\,\xhrulefill{red}{1pt}}}
+\newcommand{\sectionLine}[1]{\section*{#1\,\,\xhrulefill{blue!50!red}{1pt}}}
 
 
 \DeclareRobustCommand{\Eqref}[1]{Eq.~\ref{#1}}
@@ -97,38 +86,43 @@
 \DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
 
 
-% %for two column bibliography
-\makeatletter
-\renewenvironment{thebibliography}[1]
-     {\begin{multicols}{2}[\section*{\refname}]%
-      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist\end{multicols}}
-  \makeatother
+% % %for two column bibliography
+% \makeatletter
+% \renewenvironment{thebibliography}[1]
+%      {\begin{multicols}{2}[\section*{\refname}]%
+%       \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+%       \list{\@biblabel{\@arabic\c@enumiv}}%
+%            {\settowidth\labelwidth{\@biblabel{#1}}%
+%             \leftmargin\labelwidth
+%             \advance\leftmargin\labelsep
+%             \@openbib@code
+%             \usecounter{enumiv}%
+%             \let\p@enumiv\@empty
+%             \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+%       \sloppy
+%       \clubpenalty4000
+%       \@clubpenalty \clubpenalty
+%       \widowpenalty4000%
+%       \sfcode`\.\@m}
+%      {\def\@noitemerr
+%        {\@latex@warning{Empty `thebibliography' environment}}%
+%       \endlist\end{multicols}}
+%   \makeatother
 
 
-% avoid white space for paragraphs
-% \newlength\tindent
-% \setlength{\tindent}{\parindent}
-% \setlength{\parindent}{0pt}
-% \renewcommand{\indent}{\hspace*{\tindent}}
+% % avoid white space for paragraphs
+% % \newlength\tindent
+% % \setlength{\tindent}{\parindent}
+% % \setlength{\parindent}{0pt}
+% % \renewcommand{\indent}{\hspace*{\tindent}}
 
 
-% redefine itemize
-\let\tempone\itemize
-\let\temptwo\enditemize
-\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5em}}{\temptwo}
+% % blue!50!redefine itemize
+% \let\tempone\itemize
+% \let\temptwo\enditemize
+% \renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.5em}}{\temptwo}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
