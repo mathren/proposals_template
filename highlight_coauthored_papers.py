@@ -70,5 +70,5 @@ if __name__=="__main__":
     try:
         outfile = sys.argv[3]
         highlight_coauthored_papers(bbl, author, outfile)
-    except:
-        highlight_coauthored_papers(bbl, author, outfile)
+    except IndexError:
+        highlight_coauthored_papers(bbl, author)

@@ -76,43 +76,51 @@
 
 
 \bibliographystyle{ultracompact}
-%% -----------------------------------------
-%% Uncomment the line below (and comment thebibliography further
-%% down), then use bibtex on your
-%% bibfile to create the *.bbl file
-%%
-%% to highlight yourself, you can run the script
-%% highlight_coauthored_papers.py on this newly created bbl file,
-%% which will create a new bbl file that you can include
-%% -----------------------------------------
-%% \bibliography{mybib}
-%% -----------------------------------------
+\color{gray!80!black}
 \setlength{\bibsep}{0.7pt}
 \setstretch{0.7}
 \tiny
-%% if you run the script, then comment the \bibliography{mybib} line
-%% and uncomment this:
-%% % \include{mybib_highlighted.bbl}
 %% -----------------------------------------
-%% else: comment what is below all the way to the \end{document} line to
-%% create the *.bbl file with bibtex
-%% Once you have created the *.bbl file using bibtex on your *.bib
-%% file, copy its content within thebibliography and uncomment it,
-%% whil comment the line above and recompile
+%% Uncomment the line below if you want in the references also
+%% non-cited papers (make sure your bib file is not full of papers you
+%% don't want!)
 %% -----------------------------------------
-% \begin{thebibliography}{1}
-% \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+% \nocite{*}
+%% -----------------------------------------
+%% Uncomment the line below (and comment thebibliography if present),
+%% then use bibtex on your bib file to create the *.bbl file
+%% -----------------------------------------
+% \bibliography{mybib}
+%% -----------------------------------------
+%% To highlight in bold (with \textbf) the entries for the papers you
+%% co-authored:
+%% 1. run bibtex as explained above (to create the bbl file, e.g., mybib.bbl)
+%% 2. run the script highlight_coauthored_papers.py on the *.bbl file
+%%    created (e.g. mybib.bbl). This will create a new bbl file, e.g.
+%%    mybib_highlighted.bbl
+%% 3. copy that file here (if you created it elsewhere), comment the
+%%    \bibliography line, and uncomment
+%% -----------------------------------------
+% \include{mybib_highlighted.bbl}
+%% -----------------------------------------
+%% Alternatively, copy here content of *.bbl/
+%% You can manually copy the content of you bbl file and
+%% edit it at your wish (you still want to comment the \bibliography line)
+\begin{thebibliography}{2}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
-% \color{gray!80!black}
 
-% \bibitem[{{Abadie} {et~al}\mbox{.}(2010){Abadie}, {Abbott}, {Abbott},
-%   {Abernathy}, {Accadia}, {Acernese}, {Adams}, {Adhikari}, {Ajith}, {Allen}, \&
-%   et~al.}]{abadie:10}
-% {Abadie} J. {et~al.}, 2010, \cqg, 27, 173001
+\bibitem[{{Abadie} {et~al}\mbox{.}(2010){Abadie}, {Abbott}, {Abbott},
+  {Abernathy}, {Accadia}, {Acernese}, {Adams}, {Adhikari}, {Ajith}, {Allen}, \&
+  et~al.}]{abadie:10}
+{Abadie} J. {et~al.}, 2010, \cqg, 27, 173001
 
+\textbf{
+\bibitem[{{Renzo} \& {G{\"o}tberg}(2021)}]{renzo:21zoph}
+  {Renzo} M., {G{\"o}tberg} Y., 2021, \apj, 923, 277
+}
 
-%  %% copy here content of *.bbl
-% \end{thebibliography}
+\end{thebibliography}
 %% -----------------------------------------
 
 
