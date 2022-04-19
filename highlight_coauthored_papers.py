@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # author: Mathieu Renzo
-
+# synposys: python highlight_coauthored_papers.py <author> <*.bbl> <OPTIONAL: output bbl file>
 
 import sys
 
@@ -35,38 +35,41 @@ def highlight_coauthored_papers(bbl, author, outfile=None):
         if not outfile:
             outfile = bbl.rstrip(".bbl")+"_highlighted.bbl"
         with open(outfile, "w") as bbl_out:
-            bibitem_running = "" # to read one entry at a time
+            bibitem_running = "" # to read one bibitem at a time
+            found_first_bibitem = False
             for i, line in enumerate(b):
-                # copy verbatim first two lines, these are \begin{thebibliography} etc.
-                if (i == 0) or\
-                   (i == 1):
+                # copy verbatim lines until first \bibitem
+                if (r"\bibitem" not in line) and (not found_first_bibitem):
                     bbl_out.writelines(line)
                     continue
                 # copy last line too
-                if "\end{thebibliography}" in line:
+                elif "\end{thebibliography}" in line:
                     bbl_out.writelines(line)
                     continue # should exit
-                # add line 3+ to the bibitem we are reading
-                bibitem_running += str(line)
-                # empty line indicates end of bibitem
-                if (len(line.strip()) == 0):
-                    # found end of bibitem
-                    # print(bibitem_running)
-                    # print("---------------")
-                    # check if author is coauthor
-                    coauthor = check_author(bibitem_running, author)
-                    if coauthor:
-                        # add latex bold face to this one
-                        bibitem_running = "\n"+r"\textbf{"+"\n"+bibitem_running.rstrip("\n")+"\n"+r"}"+"\n\n"
-                    # add to file
+                else:
+                    found_first_bibitem = True # to never log lines verbatim again
+                    # build the bibitem we are reading by adding the line
+                    bibitem_running += str(line)
+                    # empty line indicates end of bibitem
+                    if (len(line.strip()) == 0):
+                        # found end of bibitem
+                        # check if author is coauthor
+                        coauthor = check_author(bibitem_running, author)
+                        if coauthor:
+                            # add latex bold face to this one
+                            bibitem_running = "\n"+r"\textbf{"+"\n"+bibitem_running.rstrip("\n")+"\n"+r"}"+"\n\n"
+                            # add to file
                     bbl_out.writelines(bibitem_running)
                     # reset bibitem_running
                     bibitem_running = ""
+    print("Done!")
+    print("Find the new bbl file with your citations highlighted at")
+    print(outfile)
 
 
 if __name__=="__main__":
-    bbl = sys.argv[1]
-    author = sys.argv[2]
+    author = sys.argv[1]
+    bbl = sys.argv[2]
     try:
         outfile = sys.argv[3]
         highlight_coauthored_papers(bbl, author, outfile)
