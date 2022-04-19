@@ -7,7 +7,9 @@ import sys
 def check_author(bibitem, author):
     """
     Given a string for a bibitem and a string for an author, returns
-    true if author appears in bibitem
+    true if author appears in bibitem.
+
+    TODO: improve with regex matching
     """
     if author.lower() in bibitem.lower():
         return True
@@ -35,8 +37,9 @@ def highlight_coauthored_papers(bbl, author, outfile=None):
         if not outfile:
             outfile = bbl.rstrip(".bbl")+"_highlighted.bbl"
         with open(outfile, "w") as bbl_out:
-            bibitem_running = "" # to read one bibitem at a time
             found_first_bibitem = False
+            # define auxiliary variable to read one bibitem at a time
+            bibitem_running = ""
             for i, line in enumerate(b):
                 # copy verbatim lines until first \bibitem
                 if (r"\bibitem" not in line) and (not found_first_bibitem):
@@ -48,10 +51,10 @@ def highlight_coauthored_papers(bbl, author, outfile=None):
                     continue # should exit
                 else:
                     found_first_bibitem = True # to never log lines verbatim again
-                    # build the bibitem we are reading by adding the line
-                    bibitem_running += str(line)
-                    # empty line indicates end of bibitem
-                    if (len(line.strip()) == 0):
+                    if (len(line.strip()) != 0):
+                        # non-empty line
+                        bibitem_running += line
+                    else:
                         # found end of bibitem
                         # check if author is coauthor
                         coauthor = check_author(bibitem_running, author)
@@ -59,9 +62,9 @@ def highlight_coauthored_papers(bbl, author, outfile=None):
                             # add latex bold face to this one
                             bibitem_running = "\n"+r"\textbf{"+"\n"+bibitem_running.rstrip("\n")+"\n"+r"}"+"\n\n"
                             # add to file
-                    bbl_out.writelines(bibitem_running)
-                    # reset bibitem_running
-                    bibitem_running = ""
+                        bbl_out.writelines(bibitem_running)
+                        # reset bibitem_running
+                        bibitem_running = ""
     print("Done!")
     print("Find the new bbl file with your citations highlighted at")
     print(outfile)
