@@ -1,6 +1,7 @@
 % page size
 \usepackage{geometry}
-  \geometry{
+%% the line below has to come before fancyhdr for it to apply to header/footer
+\geometry{
  a4paper,
  total={185mm,270mm},
  left=10mm,
@@ -9,24 +10,13 @@
  footskip=20pt
 }
 
-% these might be incompatible with the above
-% \setlength{\oddsidemargin}{.46cm}
-% \setlength{\evensidemargin}{-0.46cm}
-% \setlength{\evensidemargin}{0.0cm}
-% \setlength{\textwidth}{16cm}
-% \setlength{\textheight}{25cm}
-% \setlength{\topmargin}{-2cm}
-% \setlength{\footskip}{1cm}
-% \setlength{\parindent}{1.3em}
-% \setlength{\parskip}{.1cm}
-
-
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{}
 \fancyhead{}
 
+\usepackage{tcolorbox}
 \usepackage{epsfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -56,14 +46,6 @@
 \usepackage{enumitem}
 \usepackage{framed}
 
-\let\olditem\item \renewenvironment{thebibliography}[1]{%
-  \vspace{5pt}\noindent\textbf{\textcolor{blue!50!red}{\tiny References:}}~\textcolor{black}{\tiny
-    (co-authored papers in \textbf{bold})} \let\par\relax\let\newblock\relax%
-    % \renewcommand{\item}[1][]{\olditem[\textbullet]}{}%
-    \renewcommand\labelenumi{\bfseries\theenumi~}
-      \begin{inparaenum}%
-}{\end{inparaenum}}
-%--------------------------------------------------------
 
 
 \sectionfont{\color{blue!50!red}}
@@ -84,6 +66,36 @@
 \DeclareRobustCommand{\Figref}[1]{Fig.~\ref{#1}}
 \DeclareRobustCommand{\Tabref}[1]{Tab.~\ref{#1}}
 \DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
+
+
+% define journals for bibliography
+\def\aj{AJ}
+\def\apj{ApJ}
+\def\apss{Astrophys.~Space Sci.}
+\def\apjl{ApJL}
+\def\apjs{ApJS}
+\def\aa{A\&A}
+\def\aap{A\&A}
+\def\araa{ARAA}
+\def\mnras{MNRAS}
+\def\mnrasl{MNRASL}
+\def\cqg{Class.~Quantum Grav.}
+\def\prl{PRL}
+\def\prd{PRD}
+\def\prx{PRX}
+\def\pasp{PASP}
+\def\actaa{Act.~Astr.}
+\def\nat{Nature}
+\def\rnaas{RNAAS}
+
+\let\olditem\item \renewenvironment{thebibliography}[1]{%
+  \vspace{5pt}\noindent\textbf{\textcolor{blue!50!red}{\tiny References:}}~\textcolor{black}{\tiny
+    (co-authored papers in \textbf{bold})} \let\par\relax\let\newblock\relax%
+    % \renewcommand{\item}[1][]{\olditem[\textbullet]}{}%
+    \renewcommand\labelenumi{\bfseries\theenumi~}
+      \begin{inparaenum}%
+}{\end{inparaenum}}
+%--------------------------------------------------------
 
 
 % % %for two column bibliography
