@@ -1,3 +1,5 @@
+%% 2025/06/24 Mathieu Renzo <mrenzo@arizona.edu>
+%% Modified the function {article} to avoid listing arxiv as journal
 %% 2010/11/08 Michael Williams <williams@mpe.mpg.de>
 %% Modified astronat's mn.bst to be more like published MNRAS articles:
 %% - In the references section, references of works with more than eight
