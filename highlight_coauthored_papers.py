@@ -46,7 +46,7 @@ def highlight_coauthored_papers(bbl, author, outfile=None):
                     bbl_out.writelines(line)
                     continue
                 # copy last line too
-                elif "\end{thebibliography}" in line:
+                elif r"\end{thebibliography}" in line:
                     bbl_out.writelines(line)
                     continue # should exit
                 else:
